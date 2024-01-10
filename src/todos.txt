@@ -1,0 +1,9 @@
+- Obtener y renderizar la lista de productos ✓
+- Funcionalidad para abrir un producto y ver todos sus detalles ✓
+- Mostrar otros de la misma categoría al abrir un producto
+- Aplicar filtros a los productos por: Categoría, precio
+- Aplicar busqueda de productos por: Nombre, marca
+- Crear un carrito en el que se pueda: agregar productos, modificar la cantidad de productos, aliminar productos
+- Simular la compra de todos los productos del carrito
+- Guardar la información del carrito en LocalStorage
+- Añadir estilos/funcionalidades estéticas a la aplicación
