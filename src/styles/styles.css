@@ -98,9 +98,14 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
-.product_details{
+.details_modal{
     background-color: #fff;
     padding: 15px;
+    height: 500px;
+    max-height: 80%;
+    overflow-y: scroll;
+    z-index: 11;
 }
