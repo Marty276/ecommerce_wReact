@@ -1,5 +1,5 @@
 import { applyFilters } from "../logic/tools"
-import { CartContext } from "../contexts/Cart"
+import { CartContext } from "../contexts/CartContext"
 import { useContext } from "react"
 
 export function ProductCard({ product, openProductDetails }){

@@ -6,6 +6,7 @@ import { FiltersSection } from "./components/Filters"
 import { applyFilters } from "./logic/tools"
 import { setCategories } from "./consts/categories"
 import { CartSection } from "./components/Cart"
+import { CheckOutSecion } from "./components/CheckOut"
 
 export function App() {
     const [filteredProducts, setFilteredProducts] = useState(productsList)
@@ -18,6 +19,11 @@ export function App() {
     const [openedProduct, setOpenedProduct] = useState()
     const [query, setQuery] = useState("")
     const [isCartOpened, setCartOpened] = useState(false)
+    const [isCheckOutOpened, setIsCheckOutOpened] = useState(false)
+
+    function changeCheckOutVisibility(){
+        setIsCheckOutOpened(!isCheckOutOpened)
+    }
 
     function openProductDetails(product) {
         setOpenedProduct(product)
@@ -50,8 +56,8 @@ export function App() {
 
             <input onChange={handleQueryChange} /><button onClick={changeCartVisibility}>See Cart</button>
 
-            { isCartOpened && <CartSection closeCart={changeCartVisibility}/>}
-
+            { isCartOpened && <CartSection closeCart={changeCartVisibility} openCheckOut={changeCheckOutVisibility}/> }
+            { isCheckOutOpened && <CheckOutSecion closeCheckOut={changeCheckOutVisibility} openCart={changeCartVisibility}/> }
             <section className="products_section">
                 {
                     filteredProducts.map((product) => {

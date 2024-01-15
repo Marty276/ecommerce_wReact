@@ -1,14 +1,26 @@
-import { useContext } from "react"
-import { CartContext } from "../contexts/Cart"
+import { useContext, useState } from "react"
+import { CartContext } from "../contexts/CartContext"
 import productsList from "../product_list.json"
+import { CheckOutSecion } from "./CheckOut"
 
-export function CartSection({ closeCart }){
+export function CartSection({ closeCart, openCheckOut }){
 
     const {cart, changeProductAmount, removeCartProduct} = useContext(CartContext)
+    
+    function handleOpenCheckOut(){
+        openCheckOut()
+        closeCart()
+    }
 
     return <div className="modal_shadow">
         <section className="details_modal">
             <button onClick={closeCart}>Close Cart</button>
+
+            {
+                Object.keys(cart).length > 0
+                && <button onClick={handleOpenCheckOut}>Proceed to check out</button>
+            }
+
 
             {
                 Object.entries(cart).map(productData => {

@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react"
-import productsList from "../product_list.json"
 export const CartContext = createContext()
 
 export function CartProvider({ children }){
@@ -29,12 +28,19 @@ export function CartProvider({ children }){
         }
     }
 
+    function clearCart(){
+        setCart({})
+    }
+
     useEffect(()=>{
         window.localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
 
     return <CartContext.Provider value={{
-        cart, changeProductAmount, removeCartProduct
+        cart,
+        changeProductAmount,
+        removeCartProduct,
+        clearCart
     }}>
         {children}
     </CartContext.Provider>
