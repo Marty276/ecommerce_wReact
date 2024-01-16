@@ -6,5 +6,4 @@
 - Crear un carrito en el que se pueda: agregar productos, modificar la cantidad de productos y eliminar productos ✓
 - Simular la compra de todos los productos del carrito, aplicando los descuentos de cada uno ✓
 - Guardar la información del carrito en LocalStorage ✓
-- Seccionar la lista de productos y mostrarla por partes 
 - Añadir estilos/funcionalidades estéticas a la aplicación 

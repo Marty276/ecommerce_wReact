@@ -20,20 +20,20 @@ export function FiltersSection({categories, setFilters}) {
         })
     }
     
-    return <section>
+    return <section className="filters_section">
         <form onSubmit={handleSubmit}>
             <label>
-                min<input ref={minRef} name="min" onChange={clearNumericInputs}/>
+                min price: <input className="minmax_input" ref={minRef} name="min" onChange={clearNumericInputs} type="text"/>
             </label>
             <label>
-                max<input ref={maxRef} name="max" onChange={clearNumericInputs}/>
+                max price: <input className="minmax_input" ref={maxRef} name="max" onChange={clearNumericInputs} type="text"/>
             </label>
             <select ref={categoryRef} name="category">
                 {categories.map((category, id)=>{
                     return <option key={category + id} value={category}>{category.replace("-", " ")}</option>
                 })}
             </select>
-            <button>Apply filters</button>
+            <button type="submit" className="apply_filters_button">Apply filters</button>
         </form>
     </section>
 }

@@ -7,6 +7,8 @@ import { applyFilters } from "./logic/tools"
 import { setCategories } from "./consts/categories"
 import { CartSection } from "./components/Cart"
 import { CheckOutSecion } from "./components/CheckOut"
+import { FaShoppingCart } from "react-icons/fa";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export function App() {
     const [filteredProducts, setFilteredProducts] = useState(productsList)
@@ -52,9 +54,19 @@ export function App() {
                 openedProduct && <ProductDetails openProductDetails={openProductDetails} product={openedProduct} productsList={productsList}/>
             }
 
-            <FiltersSection categories={categories} setFilters={setFilters} />
-
-            <input onChange={handleQueryChange} /><button onClick={changeCartVisibility}>See Cart</button>
+            
+            <button className="cart_button" onClick={changeCartVisibility}>
+                {
+                    isCartOpened 
+                    ? <IoMdCloseCircle size="2.5em" color="#000000"/>
+                    : <FaShoppingCart size="2em" color="#000000"/>
+                }
+            </button>
+            
+            <header className="page_header">
+                <input onChange={handleQueryChange} className="query_input" type="text" placeholder="Search for your products here..."/>
+                <FiltersSection categories={categories} setFilters={setFilters} />
+            </header>
 
             { isCartOpened && <CartSection closeCart={changeCartVisibility} openCheckOut={changeCheckOutVisibility}/> }
             { isCheckOutOpened && <CheckOutSecion closeCheckOut={changeCheckOutVisibility} openCart={changeCartVisibility}/> }
